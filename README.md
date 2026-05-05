@@ -21,3 +21,4 @@ A ideia da aplicação foi inspirada em um sistema mobile de um dos integrantes 
 - Frameworks: Express.js e Pico.css
 - Bibliotecas importantes: Handlebars e HTMX
 - Banco de dados: SQLite
+- Frameworks de teste utilizados: Vitest(testes de unidade e integração para TypeScript) e PlayWright (testes E2E para frontend com HTMX)
