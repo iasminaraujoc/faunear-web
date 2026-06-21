@@ -17,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/iasminaraujoc/faunear-web/issues"
   },
-  "homepage": "https://github.com/iasminaraujoc/faunear-web#readme"
+  "homepage": "https://github.com/iasminaraujoc/faunear-web#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-handlebars": "^9.0.1",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.0.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
 }
