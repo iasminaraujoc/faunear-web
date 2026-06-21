@@ -1,10 +1,19 @@
 {
   "name": "faunear-web",
   "version": "1.0.0",
+  "type": "module",
   "description": "- Gabriel Franco Jallais - Gustavo de Oliveira Severino - Iasmin Correa Araujo - Lucas Andre dos Santos",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/server.js",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:seed": "tsx scripts/seed.ts",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "firebase:export": "tsx scripts/export-firestore.ts",
+    "data:convert": "tsx scripts/convert-legacy-data.ts",
+    "images:copy": "tsx scripts/copy-legacy-images.ts",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test"
@@ -16,21 +25,25 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/iasminaraujoc/faunear-web/issues"
   },
   "homepage": "https://github.com/iasminaraujoc/faunear-web#readme",
   "dependencies": {
+    "@picocss/pico": "^2.1.1",
+    "better-sqlite3": "^12.11.1",
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1",
+    "htmx.org": "^2.0.10",
     "sqlite3": "^6.0.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.0",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.6",
     "@types/node": "^26.0.0",
     "@vitest/coverage-v8": "^4.1.9",
+    "firebase-admin": "^14.0.0",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"
