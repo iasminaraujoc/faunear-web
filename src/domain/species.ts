@@ -18,6 +18,6 @@ export interface SpeciesFilters {
   commonName?: string;
   scientificName?: string;
   category?: string;
-  conservationStatuses: string[];
-  locations: string[];
+  conservationStatus?: string;
+  location?: string;
 }

@@ -1,0 +1,22 @@
+<article class="card">
+  <header>
+    <h3>{{commonName}}</h3>
+    <p><strong>{{scientificName}}</strong></p>
+  </header>
+  <p><strong>Localização:</strong> {{location}}</p>
+  <p><strong>Categoria:</strong> {{category}}</p>
+  <p><strong>Status:</strong> {{conservationStatus}}</p>
+  {{#if populationTrend}}
+    <p><strong>Tendência populacional:</strong> {{populationTrend}}</p>
+  {{/if}}
+  <p>{{description}}</p>
+  <div class="grid">
+    <a class="secondary" href="/species/{{id}}/edit">Editar</a>
+    <form method="post" action="/species/{{id}}/delete" onsubmit="return confirm('Excluir esta espécie?');">
+      <button type="submit" class="danger">Excluir</button>
+    </form>
+    <form method="post" action="/species/{{id}}/refresh" hx-post="/species/{{id}}/refresh" hx-swap="none">
+      <button type="submit" class="secondary">Atualizar resumo</button>
+    </form>
+  </div>
+</article>

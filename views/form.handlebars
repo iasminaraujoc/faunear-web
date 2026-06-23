@@ -1,0 +1,76 @@
+<section>
+  <h1>{{formTitle}}</h1>
+  <form method="post" action="{{action}}" class="stack">
+    <div class="grid">
+      <label>
+        Nome comum
+        <input type="text" name="commonName" value="{{species.commonName}}" required />
+        {{#if errors.commonName}}<span class="note error">{{errors.commonName}}</span>{{/if}}
+      </label>
+      <label>
+        Nome científico
+        <input type="text" name="scientificName" value="{{species.scientificName}}" required />
+        {{#if errors.scientificName}}<span class="note error">{{errors.scientificName}}</span>{{/if}}
+      </label>
+    </div>
+
+    <div class="grid">
+      <label>
+        Categoria
+        <select name="category" required>
+          <option value="">Selecione</option>
+          {{#each categories}}
+            <option value="{{value}}" {{#ifEquals ../species.category value}}selected{{/ifEquals}}>{{label}}</option>
+          {{/each}}
+        </select>
+        {{#if errors.category}}<span class="note error">{{errors.category}}</span>{{/if}}
+      </label>
+      <label>
+        Localização
+        <select name="location" required>
+          <option value="">Selecione</option>
+          {{#each locations}}
+            <option value="{{this}}" {{#ifEquals ../species.location this}}selected{{/ifEquals}}>{{this}}</option>
+          {{/each}}
+        </select>
+        {{#if errors.location}}<span class="note error">{{errors.location}}</span>{{/if}}
+      </label>
+    </div>
+
+    <label>
+      Ameaças
+      <textarea name="threats" rows="3" required>{{species.threats}}</textarea>
+      {{#if errors.threats}}<span class="note error">{{errors.threats}}</span>{{/if}}
+    </label>
+
+    <div class="grid">
+      <label>
+        Status de conservação
+        <select name="conservationStatus" required>
+          <option value="">Selecione</option>
+          {{#each conservationStatuses}}
+            <option value="{{this}}" {{#ifEquals ../species.conservationStatus this}}selected{{/ifEquals}}>{{this}}</option>
+          {{/each}}
+        </select>
+        {{#if errors.conservationStatus}}<span class="note error">{{errors.conservationStatus}}</span>{{/if}}
+      </label>
+      <label>
+        Tendência populacional
+        <input type="text" name="populationTrend" value="{{species.populationTrend}}" />
+      </label>
+    </div>
+
+    <label>
+      Descrição
+      <textarea name="description" rows="5" required>{{species.description}}</textarea>
+      {{#if errors.description}}<span class="note error">{{errors.description}}</span>{{/if}}
+    </label>
+
+    <label>
+      Caminho da imagem
+      <input type="text" name="imagePath" value="{{species.imagePath}}" />
+    </label>
+
+    <button type="submit">{{submitLabel}}</button>
+  </form>
+</section>

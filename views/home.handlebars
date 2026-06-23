@@ -1,0 +1,37 @@
+<section>
+  <h1>Espécies em Extinção</h1>
+  <form method="get" class="stack">
+    <div class="grid">
+      <input type="search" name="search" placeholder="Buscar por nome, descrição ou categoria" value="{{filters.search}}" />
+      <select name="category">
+        <option value="">Categoria</option>
+        {{#each categories}}
+          <option value="{{value}}" {{#ifEquals ../filters.category value}}selected{{/ifEquals}}>{{label}}</option>
+        {{/each}}
+      </select>
+      <select name="conservationStatus">
+        <option value="">Status de Conservação</option>
+        {{#each conservationStatuses}}
+          <option value="{{this}}" {{#ifEquals ../filters.conservationStatus this}}selected{{/ifEquals}}>{{this}}</option>
+        {{/each}}
+      </select>
+      <select name="location">
+        <option value="">Localização</option>
+        {{#each locations}}
+          <option value="{{this}}" {{#ifEquals ../filters.location this}}selected{{/ifEquals}}>{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <button type="submit">Filtrar</button>
+  </form>
+
+  {{#if species.length}}
+    <div class="grid">
+      {{#each species}}
+        {{> species-card}}
+      {{/each}}
+    </div>
+  {{else}}
+    <p>Nenhuma espécie encontrada.</p>
+  {{/if}}
+</section>
