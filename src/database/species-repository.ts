@@ -93,6 +93,28 @@ export class SpeciesRepository {
     return row ? mapRowToSpecies(row) : null;
   }
 
+  findByScientificName(scientificName: string): Species | null {
+    const row = this.#db
+      .prepare(
+        `SELECT id,
+          common_name,
+          scientific_name,
+          location,
+          threats,
+          conservation_status,
+          population_trend,
+          description,
+          category,
+          image_path
+        FROM species
+        WHERE scientific_name = ?
+      `,
+      )
+      .get(scientificName);
+
+    return row ? mapRowToSpecies(row) : null;
+  }
+
   create(data: NewSpecies): number {
     const statement = this.#db.prepare(
       `INSERT INTO species (

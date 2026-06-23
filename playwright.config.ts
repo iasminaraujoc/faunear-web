@@ -2,6 +2,7 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "tests",
+  testMatch: /.*\.spec\.ts/,
   timeout: 30_000,
   expect: {
     timeout: 5000,
@@ -17,8 +18,5 @@ export default defineConfig({
     port: 3000,
     reuseExistingServer: true,
     timeout: 120_000,
-    env: {
-      NODE_ENV: "test",
-    },
   },
 });

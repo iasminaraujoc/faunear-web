@@ -3,19 +3,19 @@
   <form method="get" class="stack">
     <div class="grid">
       <input type="search" name="search" placeholder="Buscar por nome, descrição ou categoria" value="{{filters.search}}" />
-      <select name="category">
+      <select name="category" aria-label="Categoria">
         <option value="">Categoria</option>
         {{#each categories}}
           <option value="{{value}}" {{#ifEquals ../filters.category value}}selected{{/ifEquals}}>{{label}}</option>
         {{/each}}
       </select>
-      <select name="conservationStatus">
+      <select name="conservationStatus" aria-label="Status de Conservação">
         <option value="">Status de Conservação</option>
         {{#each conservationStatuses}}
           <option value="{{this}}" {{#ifEquals ../filters.conservationStatus this}}selected{{/ifEquals}}>{{this}}</option>
         {{/each}}
       </select>
-      <select name="location">
+      <select name="location" aria-label="Localização">
         <option value="">Localização</option>
         {{#each locations}}
           <option value="{{this}}" {{#ifEquals ../filters.location this}}selected{{/ifEquals}}>{{this}}</option>

@@ -21,4 +21,27 @@ A ideia da aplicação foi inspirada em um sistema mobile de um dos integrantes 
 - Frameworks: Express.js e Pico.css
 - Bibliotecas importantes: Handlebars e HTMX
 - Banco de dados: SQLite
-- Frameworks de teste utilizados: Vitest(testes de unidade e integração para TypeScript) e PlayWright (testes E2E para frontend com HTMX)
+- Frameworks de teste utilizados: Vitest (testes de unidade e integração para TypeScript) e Playwright (testes E2E para frontend com HTMX)
+
+### 4. Como rodar o projeto
+1. Instale as dependências:
+   - `npm install`
+2. Execute as migrations:
+   - `npm run db:migrate`
+3. Popule o banco de dados inicial (opcional):
+   - `npm run db:seed`
+4. Executar em desenvolvimento:
+   - `npm run dev`
+
+### 5. Como rodar os testes
+- Testes unitários e de integração:
+  - `npm test`
+- Testes com cobertura:
+  - `npm run test:coverage`
+- Testes E2E:
+  - `npm run test:e2e`
+- Pipeline completo de CI:
+  - `npm run test:ci`
+
+### 6. Integração contínua
+O projeto usa GitHub Actions em `.github/workflows/ci.yml` para rodar testes e enviar relatórios de cobertura ao Codecov.
